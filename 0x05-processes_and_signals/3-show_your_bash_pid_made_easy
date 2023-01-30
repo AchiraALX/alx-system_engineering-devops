@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displaying the PID along with the process
-./1-list_your_processes | grep -l bash
+./1-list_your_processes | pgrep -l bash
 
