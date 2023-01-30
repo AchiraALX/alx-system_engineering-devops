@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
 # This script displays current process ID.
-
 echo $$
-
 
