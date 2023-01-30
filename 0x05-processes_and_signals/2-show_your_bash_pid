@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displaying processes containing the word bas using the previous exercise
+./1-list_your_processes | grep bash
+
