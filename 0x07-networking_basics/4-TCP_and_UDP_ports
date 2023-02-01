@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A bash script that displays litnening ports
+sudo netstat -lp
+
