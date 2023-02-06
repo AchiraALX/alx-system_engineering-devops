@@ -5,4 +5,3 @@ until [ $COUNTER -ge 10 ]; do
       echo Best School
       let COUNTER+=1
 done
-
