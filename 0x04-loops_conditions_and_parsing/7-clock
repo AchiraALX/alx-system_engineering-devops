@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script displays a counter for hours and minutes
+# This script displays a counter for hours and minutes up to 12 hours
 HOUR=0
 MINUTE=1
 while [ $HOUR -le 12 ]; do
