@@ -1,5 +1,4 @@
-exec {'killmenow':
-  command => '/usr/bin/pkill killmenow',
-  path    => '/usr/bin:/usr/sbin:/bin:/sbin',
-  onlyif  => '/usr/bin/pgrep killmenow',
+# Manifest that kills a process named killmenow
+exec { 'pkill':
+  command  => '/usr/bin/pkill -f killmenow'
 }
