@@ -5,4 +5,4 @@
 # -b 4096: set the number of bits in the key to 4096
 # -f school: specify the name of the private key file to create
 # -N betty: set the passphrase for the key to "betty"
-ssh-keygen -t rsa -b 4096 -f school -N betty
+ssh-keygen -b 4096 -f school -t rsa -P hello
