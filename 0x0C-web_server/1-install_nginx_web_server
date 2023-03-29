@@ -2,7 +2,7 @@
 
 # Install nginx
 apt-get update
-sudo apt install nginx-full -y
+apt install nginx-full -y
 
 # Configure nginx
 echo "Hello World!" > /var/www/html/index.html
