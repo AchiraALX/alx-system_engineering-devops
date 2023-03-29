@@ -7,6 +7,9 @@ apt-get install nginx -y
 # Configure nginx
 echo "Hello World!" > /var/www/html/index.html
 
+# Listen to port 80
+sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+
 # Start nginx
 nohup nginx -g 'daemon off;' &
 
