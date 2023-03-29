@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server
-apt-get -y update
-apt-get -y install nginx
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
-service nginx start
+# Install nginx on my web01 server
+# Nginx should be listening on port 80
+# When sent a GET request at root, return a page that contains at least
+# one string "Hello world"
+sudo apt-get -y install nginx
+sudo service nginx start
+echo "Hello world" | sudo tee /usr/share/nginx/html/index.html
