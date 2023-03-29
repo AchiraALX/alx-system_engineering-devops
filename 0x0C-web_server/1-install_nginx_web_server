@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Install nginx on my web01 server
-# Nginx should be listening on port 80
-# When sent a GET request at root, return a page that contains at least
-# one string "Hello world"
-sudo apt-get -y install nginx
-sudo service nginx start
-echo "Hello world" | sudo tee /usr/share/nginx/html/index.html
+
+# Install nginx
+apt-get update
+apt-get install nginx -y
+
+# Configure nginx
+echo "Hello World!" > /var/www/html/index.html
+
+# Start nginx
+nohup nginx -g 'daemon off;' &
+
