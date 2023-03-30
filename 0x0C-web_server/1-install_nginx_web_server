@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
-# Install nginx
+# Update apt-get package index
 apt-get update
-apt install nginx-full -y
 
-# Configure nginx
-echo "Hello World!" > /var/www/html/index.html
+# Install Nginx without any prompts
+apt-get install -y nginx
 
-# Start
-systemctl start nginx
-systemctl status nginx
+# Configure Nginx to listen on port 80
+sed -i 's/listen\s*80;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Restart Nginx using the kill command
+nginx_pid=$(cat /var/run/nginx.pid)
+kill -s HUP $nginx_pid
+
+# Create a simple "Hello World!" HTML file
+echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
+
+# Print a message indicating that the installation and configuration is complete
+echo "Nginx installation and configuration complete. Querying Nginx at root should return 'Hello World!'"
