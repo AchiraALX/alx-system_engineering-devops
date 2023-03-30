@@ -14,7 +14,4 @@ nginx_pid=$(cat /var/run/nginx.pid)
 kill -s HUP $nginx_pid
 
 # Create a simple "Hello World!" HTML file
-echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
-
-# Print a message indicating that the installation and configuration is complete
-echo "Nginx installation and configuration complete. Querying Nginx at root should return 'Hello World!'"
+echo "Hello World!" > /var/www/html/index.html
