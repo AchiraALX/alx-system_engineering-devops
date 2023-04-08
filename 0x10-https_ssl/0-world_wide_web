@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 domain [subdomain]"
+  exit 1
+fi
+
+domain=$1
+
+if [ $# -eq 2 ]; then
+  subdomain=$2
+  dns_value=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+  record_type=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+  echo "The subdomain $subdomain is a $record_type and points to $dns_value"
+else
+  subdomains=(www lb-01 web-01 web-02)
+
+  for subdomain in "${subdomains[@]}"; do
+    dns_value=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+    record_type=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+    echo "The subdomain $subdomain is a $record_type and points to $dns_value"
+  done
+fi
