@@ -1,4 +1,5 @@
-#!/bin/env bash
+#!/usr/bin/env bash
+# Get A records for specified domains
 
 if [ $# -lt 1 ]; then
   echo "Usage: $0 domain [subdomain]"
