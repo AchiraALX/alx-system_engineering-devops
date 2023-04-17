@@ -1,0 +1,58 @@
+The address https://www.google.com luckily specifies the protocal HTTPS which we aready know that runs
+on port 443. Computers basically communicate with each other through IPs which is a set of an octet
+(8 binary bits), for example google.com would be 216.58.210.142 or wikipedia.org be 91.198.174.97.
+
+DNS request
+DNS Request is a naming system used to keep records of computers or services over the internet communicating 
+to each other using the Internet Protocol. It translates domain names into IP addresses, which are then translated 
+into HTTPs and run on the TCP port 443. This is known as an IP address, specifically version 4 (IPv4). 
+DNS Request is similar to a phonebook for the internet, where the resolver, Top Level Domains, Authoritative
+Name Servers work. The most important details of the phrases tls handshake, dns server, server, and dns request
+are that when a user types "https://www.google.com" in their favorite browser and presses the "Enter" key, 
+a DNS request is made and performed a DNS lookup. The browser then checks if the domain is in its cache and calls a 
+function to do the lookup. If not found, a request to the DNS server is made configured in the local router or 
+the ISP's (Internet Service Provider's) caching DNS server. The DNS server then follows the ARP (Address Resolution Protocol) 
+Process to perform a lookup using the MAC address and route tables to find the target IP. 
+
+TCP/IP
+Once the DNS server returns the IP address for google.com, the browser uses that IP address to 
+establish a connection to the goggle server over the internet. The connection is usually established through the 
+TCP/IP protocol stack, which includes a number of layers such as the physical layer, data link layer, 
+network layer, transport layer, and application layer.
+
+Firewall
+The firewall is then implemented at the network layer or transport layer of the TCP/IP protocol stack. 
+Its primary role is to monitor incoming and outgoing traffic to protect the network from unauthorized access, 
+malware, or other security threats. Once the connection is established, the firewall may inspect the traffic to 
+ensure that it meets certain security policies.
+
+HTTPS/SSL
+HTTPS/SSL is an application layer protocol that provides secure communication over the internet. It is used to
+encrypt the traffic between the client's browser and the web server to prevent eavesdropping, tampering, or data
+theft. The HTTPS/SSL connection is usually established after the TCP/IP connection is established, and before
+any data is exchanged between the client and the server.
+
+Load balancer
+In load balancing, a load balancer sits between clients and a pool of google backend servers or their resources, distributing 
+incoming network traffic or requests to the servers based on various algorithms, such as round-robin, least 
+connections, or IP hash. The load balancer continually monitors the health of the servers and removes any 
+failed servers from the pool of available servers. And thus its primary goal is to improve the availability
+and perfomance of the network.
+
+Web Server.
+Web server is a software program that serves web pages to web users (browsers). Examples include Apache HTTP Server, Microsoft Internet 
+Information Services (IIS), and Nginx. The web server is responsible for serving static content (such as HTML, CSS, and JavaScript files) 
+to clients, while
+
+Application server.
+Application server works with a web server to handle requests for dynamic content.  The application server is responsible for handling 
+requests for dynamic content (such as data retrieved from a database). 
+
+The two components (web server and application server) often work together to serve complete web pages to clients.
+
+Database.
+Database is an organized collection of structured information, or data, typically stored electronically in a computer system. 
+It is usually controlled by a database management system (DBMS). Different types of databases use DBMS to create, edit, delete and maintain data.
+The database basically then is where data is stored and managed. The application server interacts with the database to retrieve and manipulate data as 
+needed to fulfill client requests. Different types of databases (such as relational, NoSQL, and graph databases) use different data 
+models and query languages to represent and manipulate data.
