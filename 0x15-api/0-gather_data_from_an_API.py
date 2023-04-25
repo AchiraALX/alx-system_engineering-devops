@@ -1,7 +1,10 @@
-# This is a Python script that retrieves employee data from a mock REST API
-# and outputs the number of tasks completed by the employee, as well as the titles
-# of the completed tasks. The script uses urllib to make HTTP requests to the API
-# and the sys module to retrieve command-line arguments.
+#!/usr/bin/python3
+"""
+This is a Python script that retrieves employee data from a mock REST API
+and outputs the number of tasks completed by the employee, as well as the titles
+of the completed tasks. The script uses urllib to make HTTP requests to the API
+and the sys module to retrieve command-line arguments.
+"""
 
 import sys
 import urllib.request
