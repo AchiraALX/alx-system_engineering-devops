@@ -10,25 +10,23 @@ Format must be: {"USER_ID": [ {"task": TASK_TITLE,
 File name must be: USER_ID.json
 """
 import json
+import requests
 import sys
-from urllib.request import urlopen
 
 if __name__ == "__main__":
     eid = sys.argv[1]
-    with urlopen(
-        f"http://jsonplaceholder.typicode.com/users/{eid}"
-    ) as response:
-        username = json.loads(response.read().decode())["username"]
+    username = requests.get("http://jsonplaceholder.typicode.com/users/{}"
+                            .format(eid)).json().get("username")
     all_tasks = []
-    with urlopen("http://jsonplaceholder.typicode.com/todos") as response:
-        r = json.loads(response.read().decode())
-        for task in r:
-            if task.get("userId") == int(eid):
-                temp = {}
-                temp["task"] = task.get("title")
-                temp["completed"] = task.get("completed")
-                temp["username"] = username
-                all_tasks.append(temp)
+    r = requests.get("http://jsonplaceholder.typicode.com/todos").json()
 
-    with open(f"{eid}.json", "w+") as jsonfile:
+    for task in r:
+        if (task.get("userId") == int(eid)):
+            temp = {}
+            temp["task"] = task.get("title")
+            temp["completed"] = task.get("completed")
+            temp["username"] = username
+            all_tasks.append(temp)
+
+    with open("{}.json".format(eid), 'w+') as jsonfile:
         json.dump({eid: all_tasks}, jsonfile)
