@@ -15,7 +15,9 @@ from urllib.request import urlopen
 
 if __name__ == "__main__":
     eid = sys.argv[1]
-    with urlopen(f"http://jsonplaceholder.typicode.com/users/{eid}") as response:
+    with urlopen(
+        f"http://jsonplaceholder.typicode.com/users/{eid}"
+    ) as response:
         username = json.loads(response.read().decode())["username"]
     all_tasks = []
     with urlopen("http://jsonplaceholder.typicode.com/todos") as response:
