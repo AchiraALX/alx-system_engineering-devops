@@ -10,19 +10,11 @@ Format must be: {"USER_ID": [ {"task": TASK_TITLE,
 File name must be: todo_all_employees.json
 """
 import json
-import urllib.request
-import urllib.parse
+import requests
 
 if __name__ == "__main__":
-    url_users = "http://jsonplaceholder.typicode.com/users"
-    url_todos = "http://jsonplaceholder.typicode.com/todos"
-
-    with urllib.request.urlopen(url_users) as response:
-        users = json.loads(response.read().decode())
-
-    with urllib.request.urlopen(url_todos) as response:
-        todos = json.loads(response.read().decode())
-
+    users = requests.get("http://jsonplaceholder.typicode.com/users").json()
+    tasks = requests.get("http://jsonplaceholder.typicode.com/todos").json()
     storage = {}
 
     for user in users:
@@ -30,7 +22,7 @@ if __name__ == "__main__":
         username = user.get("username")
         all_tasks = []
 
-        for task in todos:
+        for task in tasks:
             if (task.get("userId") == eid and task.get("completed")):
                 temp = {}
                 temp["task"] = task.get("title")
