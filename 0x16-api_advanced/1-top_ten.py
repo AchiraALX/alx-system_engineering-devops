@@ -3,9 +3,12 @@ import requests
 
 
 def top_ten(subreddit):
-    """Prints the titles of the first 10 hot posts listed for a given subreddit
     """
-    # Make a request to the Reddit API to get the subreddit information
+        Prints the titles of the first 10 hot posts listed for
+        a given subreddit
+    """
+    # Make a request to the Reddit API to get the subreddit
+    # information
     response = requests.get(
         f"https://www.reddit.com/r/{subreddit}/hot.json",
         headers={"User-Agent": "Mozilla/5.0"},
