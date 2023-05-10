@@ -26,5 +26,3 @@ def top_ten(subreddit):
     except (KeyError, ValueError):
         print(None)
         return
-
-print(top_ten("programming"))

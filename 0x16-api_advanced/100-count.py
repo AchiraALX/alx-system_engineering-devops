@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import requests
 
+
 def count_words(subreddit, word_list):
     # initialize counts dict on first call
     counts = {}
@@ -14,7 +15,8 @@ def count_words(subreddit, word_list):
     # send a GET request to the Reddit API
     response = requests.get(url, headers=headers)
 
-    # if the subreddit is invalid or there is an issue with the API, return nothing
+    # if the subreddit is invalid or there is an
+    # issue with the API, return nothing
     if response.status_code != 200:
         return
 
@@ -25,12 +27,15 @@ def count_words(subreddit, word_list):
     for post in data["data"]["children"]:
         title = post["data"]["title"]
 
-        # loop through the list of words and count their occurrences
+        # loop through the list of words and count their
+        # occurrences
         for word in word_list:
-            # ensure the word is in lowercase and remove any trailing punctuation
+            # ensure the word is in lowercase and remove any
+            # trailing punctuation
             word = word.lower().strip(".,!?:;")
 
-            # count the number of occurrences of the word in the title
+            # count the number of occurrences of the word
+            # in the title
             count = title.lower().count(word)
 
             # add the count to the counts dict
