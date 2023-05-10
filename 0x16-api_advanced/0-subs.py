@@ -3,21 +3,16 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """ Get subscriber count of a give subreddit """
-    # Make a request to the Reddit API to get the sureddit information
-    response = requests.get(
-        f"https://www.reddit.com/r/{subreddit}/about.json",
-        headers={"User-Agent": "Mozilla/5.0"},
-        allow_redirects=False
-    )
-
-    # Check response if it was successful and not  redirect
-    if response.status_code != 200 or response.is_redirect:
+    """ GET subscriber count of a given subreddit """
+    url = "http://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {'user-agent': 'philsrequest'}
+    r = requests.get(url, headers=headers)
+    if (r.status_code is 302 or r.status_code is 404):
         return 0
-
-    # Parse the JSO response to get the number of subscribers
-    try:
-        data = response.json()
-        return data["data"]["subscribers"]
-    except (KeyError, ValueError):
+    r = r.json()
+    if ('error' in r):
+        return 0
+    elif ('subscribers' in r['data']):
+        return r['data']['subscribers']
+    else:
         return 0
