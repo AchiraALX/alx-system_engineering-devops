@@ -3,10 +3,7 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-        Returns the number of subscribers for a given subreddit
-        If the subreddit is invalid, return 0
-    """
+    """ Get subscriber count of a give subreddit """
     # Make a request to the Reddit API to get the sureddit information
     response = requests.get(
         f"https://www.reddit.com/r/{subreddit}/about.json",
